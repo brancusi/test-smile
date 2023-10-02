@@ -1,0 +1,30 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+
+        com.github.haifengl/smile-interpolation {:mvn/version "2.6.0"}
+        com.github.haifengl/smile-core {:mvn/version "2.6.0"}
+        com.github.haifengl/smile-mkl {:mvn/version "2.6.0"}
+
+        org.bytedeco.javacpp-presets/openblas {:mvn/version "0.3.5-1.4.4"}
+        org.bytedeco.javacpp-presets/arpack-ng {:mvn/version "3.6.3-1.4.4"}
+
+        org.bytedeco/javacpp-platform {:mvn/version "1.5.9"}
+        org.bytedeco/javacpp {:mvn/version "1.5.9"}
+
+        org.bytedeco/arpack-ng-platform {:mvn/version "3.9.0-1.5.9"}
+        org.bytedeco/arpack-ng {:mvn/version "3.9.0-1.5.9"}
+
+        org.bytedeco/openblas-platform {:mvn/version "0.3.23-1.5.9"}
+        org.bytedeco/openblas {:mvn/version "0.3.23-1.5.9"}
+
+        scicloj/scicloj.ml {:mvn/version "0.3"}}
+ :aliases
+ {:dev {:jvm-opts ["-Dorg.bytedeco.openblas.load=mkl_rt"]}
+
+  :build {:deps {io.github.clojure/tools.build
+                 {:git/tag "v0.9.2" :git/sha "fe6b140"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}} :neil {:project {:name test-smile/test-smile}}}}
